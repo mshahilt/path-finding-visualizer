@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343A40;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="display: flex; align-items: center;">
+        <img src="logo.png" alt="Pathfinding Visualizer" height="35" style="margin-right: 10px;">
+        <h5>Pathfinding Visualization</h5>
+      </a>      
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Choose Algorithm
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">A* Algorithm</a></li>
+              <li><a class="dropdown-item" href="#">Dijkstra</a></li>
+              <li><a class="dropdown-item" href="#">Greedy Best-First</a></li>
+              <li><a class="dropdown-item" href="#">Breadth-First Search</a></li>
+              <li><a class="dropdown-item" href="#">Depth-First Search</a></li>
+            </ul>
+          </li>
+        </ul>
+  
+        <div class="d-flex justify-content-center align-items-center w-100">
+
+          <button class="btn" style="background-color: #FFC107; color: #343A40; margin-right: 10px;">Start Visualization</button>
+  
+          <button class="btn btn-danger" style="margin-right: 10px;">Stop</button>
+  
+          <button class="btn btn-secondary">Reset Grid</button>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <a class="text-reset me-3" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Help">
+            <i class="fas fa-question-circle" style="color: #FFC107;"></i>
+          </a>
+  
+          <div class="dropdown">
+            <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="avatar.webp" class="rounded-circle" height="30" alt="User Profile">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProfile">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,75 @@
+<footer>
+    <div id="footer-content">
+        <p id="selected-image">Selected Image: <span>No image selected</span></p>
+        <p id="visited-status">Visited Cells: <span>0</span> / <span id="total-cells"></span></p>
+        <p id="non-visited-status">Non-Visited Cells: <span>0</span></p>
+    </div>
+</footer>
+<script>
+    const gridElement = document.getElementById('grid');
+    const footerSelectedImage = document.getElementById('selected-image').querySelector('span');
+    const visitedStatus = document.getElementById('visited-status').querySelectorAll('span');
+    const nonVisitedStatus = document.getElementById('non-visited-status').querySelector('span');
+    const totalCellsElement = document.getElementById('total-cells');
+
+    const rows = Math.floor(window.innerHeight / 40);
+    const cols = Math.floor(window.innerWidth / 40);
+
+    let startCell = null;
+    let endCell = null;
+    let visitedCount = 0;
+    let nonVisitedCount = rows * cols;
+
+    totalCellsElement.textContent = rows * cols;
+
+    for (let i = 0; i < rows * cols; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
+    cell.dataset.id = i;
+
+    cell.addEventListener('click', () => handleCellClick(cell));
+
+    gridElement.appendChild(cell);
+    }
+
+    function handleCellClick(cell) {
+    if (startCell && cell === startCell) {
+        startCell.classList.remove('start');
+        startCell = null;
+    } else if (endCell && cell === endCell) {
+        endCell.classList.remove('end');
+        endCell = null;
+    } else if (!startCell) {
+        startCell = cell;
+        cell.classList.add('start');
+    } else if (!endCell) {
+        endCell = cell;
+        cell.classList.add('end');
+    }
+
+    updateVisitedStatus();
+    }
+
+    function updateVisitedStatus() {
+    const allCells = document.querySelectorAll('.cell');
+    visitedCount = 0;
+    nonVisitedCount = 0;
+
+    allCells.forEach(cell => {
+        if (cell.classList.contains('visited')) {
+        visitedCount++;
+        } else {
+        nonVisitedCount++;
+        }
+    });
+
+    visitedStatus[0].textContent = visitedCount;
+    visitedStatus[1].textContent = totalCellsElement.textContent;
+    nonVisitedStatus.textContent = nonVisitedCount;
+    }
+
+    function updateSelectedImage(imageName) {
+    footerSelectedImage.textContent = imageName ? imageName : "No image selected";
+    }
+
+</script>

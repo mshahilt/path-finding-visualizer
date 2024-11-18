@@ -28,11 +28,11 @@ app.use(
 const pathfindingRoutes = require('./routes/pathfindingRoutes'); // Example route file
 app.use('/pathfinding', pathfindingRoutes);
 
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Pathfinding Visualizer' });
-});
+const userRoutes = require('./routes/userRoutes')
 
-const PORT = process.env.PORT || 3000;
+app.use('/', userRoutes)
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

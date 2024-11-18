@@ -1,0 +1,37 @@
+<div class="grid-container mt-4">
+    <div class="grid" id="grid"></div>
+  </div>
+<script>
+   const gridElement = document.getElementById('grid');
+const rows = Math.floor(window.innerHeight / 40);
+const cols = Math.floor(window.innerWidth / 40);
+
+let startCell = null;
+let endCell = null;
+
+for (let i = 0; i < rows * cols; i++) {
+  const cell = document.createElement('div');
+  cell.classList.add('cell');
+  cell.dataset.id = i;
+
+  cell.addEventListener('click', () => handleCellClick(cell));
+
+  gridElement.appendChild(cell);
+}
+
+function handleCellClick(cell) {
+  if (startCell && cell === startCell) {
+    startCell.classList.remove('start');
+    startCell = null;
+  } else if (endCell && cell === endCell) {
+    endCell.classList.remove('end');
+    endCell = null;
+  } else if (!startCell) {
+    startCell = cell;
+    cell.classList.add('start');
+  } else if (!endCell) {
+    endCell = cell;
+    cell.classList.add('end');
+  }
+}
+</script>
